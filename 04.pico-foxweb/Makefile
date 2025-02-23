@@ -17,11 +17,14 @@ install: PICOFoxweb
 	useradd -c "PICOFoxweb user" -r -s /sbin/nologin -d /var/www/picofoxweb picofoxweb
 	install -o root -g root -m 0755 PICOFoxweb /usr/local/sbin/
 	install -o root -g root -m 0644 picofoxweb.service /etc/systemd/system/
+	touch /var/log/foxweb.log
 	systemctl daemon-reload
 	systemctl restart picofoxweb.service
 	mkdir -p /var/www/picofoxweb
 	cp -r webroot -t /var/www/picofoxweb/
 	chown -R picofoxweb:picofoxweb /var/www/picofoxweb
+	chown picofoxweb:picofoxweb /var/log/foxweb.log
+	chmod 644 /var/log/foxweb.log
 	chmod -R 755 /var/www/picofoxweb/webroot
 
 uninstall:
