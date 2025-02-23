@@ -35,3 +35,9 @@ sudo make install
 sudo make uninstall
 ~~~
 
+- Логирование
+~~~
+Файл логов:
+/var/log/foxweb.log
+~~~
+
