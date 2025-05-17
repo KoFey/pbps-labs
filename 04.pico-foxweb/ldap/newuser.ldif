@@ -1,0 +1,7 @@
+dn: uid=newuser,ou=users,dc=nodomain
+objectClass: inetOrgPerson
+uid: newuser
+cn: New User
+sn: User
+userPassword: {HA1}806d65dae95995747de9a757d10f049a
+

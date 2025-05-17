@@ -4,14 +4,17 @@ clean:
 	@rm -rf *.o
 	@rm -rf PICOFoxweb
 
-PICOFoxweb: main.o httpd.o
-	gcc -o PICOFoxweb $^
+PICOFoxweb: main.o httpd.o auth_ldap.o
+	gcc -o PICOFoxweb $^ -lldap -lcrypto
 
 main.o: main.c httpd.h
 	gcc -c -o main.o main.c
 
 httpd.o: httpd.c httpd.h
 	gcc -c -o httpd.o httpd.c
+
+auth_ldap.o: auth_ldap.c auth_ldap.h
+	gcc -c -o auth_ldap.o auth_ldap.c -lcrypto
 
 install: PICOFoxweb
 	useradd -c "PICOFoxweb user" -r -s /sbin/nologin -d /var/www/picofoxweb picofoxweb

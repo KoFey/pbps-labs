@@ -1,0 +1,10 @@
+dn: dc=nodomain
+objectClass: top
+objectClass: domain
+dc: nodomain
+
+dn: ou=users,dc=nodomain
+objectClass: top
+objectClass: organizationalUnit
+ou: users
+

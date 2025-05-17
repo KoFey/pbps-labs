@@ -29,6 +29,18 @@ make
 sudo make install
 ~~~
 
+- Успешный запрос с digest аунтификацией:
+
+~~~
+curl --digest -u newuser:newpass http://localhost:8080
+~~~
+
+- Неуспешный запрос с digest аунтификацией:
+
+~~~
+curl --digest -u newuser:newpass1 http://localhost:8080
+~~~
+
 - Удаление
 
 ~~~

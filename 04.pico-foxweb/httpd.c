@@ -1,5 +1,5 @@
 #include "httpd.h"
-
+#include "auth_ldap.h"
 #include <arpa/inet.h>
 #include <ctype.h>
 #include <netdb.h>
@@ -218,6 +218,10 @@ void respond(int slot) {
     dup2(clientfd, STDOUT_FILENO);
     close(clientfd);
 
+    // NEW - check authorization
+    if (!check_digest_auth(method, uri, reqhdr)) {
+      send_unauthorized();
+    }
     // call router
     route();
 

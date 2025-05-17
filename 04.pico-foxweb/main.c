@@ -2,6 +2,9 @@
 #include <sys/stat.h>
 #include <syslog.h>
 #include <time.h>
+#include <openssl/md5.h>
+#include "auth_ldap.h"
+
 
 #define CHUNK_SIZE 1024 // read 1024 bytes at a time
 
